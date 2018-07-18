@@ -4,7 +4,7 @@
 #
 Name     : extra-cmake-modules
 Version  : 5.48.0
-Release  : 2
+Release  : 3
 URL      : https://github.com/KDE/extra-cmake-modules/archive/v5.48.0.tar.gz
 Source0  : https://github.com/KDE/extra-cmake-modules/archive/v5.48.0.tar.gz
 Summary  : KF5CoreAddons3 library.

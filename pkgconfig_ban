@@ -1,2 +1,16 @@
 # This file contains pkgconfig build requirements that get picked up
 # but are undesirable. One entry per line, no whitespace.
+OpenEXR
+dbusmenu-qt
+git2
+libagg
+libart-2.0
+libavcodec
+libpulse>=${PulseAudio_FIND_VERSION}
+libsasl2
+libstreamanalyzer>=${STRIGI_MIN_VERSION}
+libusb
+libxine
+qca2
+qimageblitz
+xmms

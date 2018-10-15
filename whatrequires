@@ -1,3 +1,21 @@
 # This file contains recursive sources that require this package
+Vulkan-Loader
+Vulkan-Tools
+bluedevil
+breeze
 cantor
+kde-cli-tools
+kinfocenter
+kio-extras
+krita
+kscreenlocker
+kwin
+libkscreen
+oxygen
 phonon
+plasma-desktop
+plasma-integration
+plasma-pa
+plasma-workspace
+webkitgtk
+xdg-desktop-portal-kde

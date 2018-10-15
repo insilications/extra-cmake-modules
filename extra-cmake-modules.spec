@@ -5,22 +5,25 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.50.0
-Release  : 10
-URL      : https://download.kde.org/stable/frameworks/5.50/extra-cmake-modules-5.50.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.50/extra-cmake-modules-5.50.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.50/extra-cmake-modules-5.50.0.tar.xz.sig
+Version  : 5.51.0
+Release  : 11
+URL      : https://download.kde.org/stable/frameworks/5.51/extra-cmake-modules-5.51.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.51/extra-cmake-modules-5.51.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.51/extra-cmake-modules-5.51.0.tar.xz.sig
 Summary  : KF5CoreAddons test
 Group    : Development/Tools
 License  : BSD-3-Clause
-Requires: extra-cmake-modules-data
-Requires: extra-cmake-modules-license
-Requires: extra-cmake-modules-man
+Requires: extra-cmake-modules-data = %{version}-%{release}
+Requires: extra-cmake-modules-license = %{version}-%{release}
+Requires: extra-cmake-modules-man = %{version}-%{release}
 BuildRequires : Sphinx
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
 BuildRequires : doxygen
+BuildRequires : extra-cmake-modules pkgconfig(egl)
+BuildRequires : extra-cmake-modules qttools-dev
+BuildRequires : extra-cmake-modules wayland
 BuildRequires : glibc-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : openssl-dev
@@ -33,6 +36,7 @@ BuildRequires : pkgconfig(fontconfig)
 BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gobject-2.0)
 BuildRequires : pkgconfig(libpcre)
+BuildRequires : pkgconfig(libpulse)
 BuildRequires : pkgconfig(libpulse-mainloop-glib)
 BuildRequires : pkgconfig(libseccomp)
 BuildRequires : pkgconfig(libusb-1.0)
@@ -60,7 +64,7 @@ data components for the extra-cmake-modules package.
 %package doc
 Summary: doc components for the extra-cmake-modules package.
 Group: Documentation
-Requires: extra-cmake-modules-man
+Requires: extra-cmake-modules-man = %{version}-%{release}
 
 %description doc
 doc components for the extra-cmake-modules package.
@@ -83,7 +87,7 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.50.0
+%setup -q -n extra-cmake-modules-5.51.0
 %patch1 -p1
 
 %build
@@ -91,11 +95,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1536429499
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1539610206
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %check
@@ -103,14 +107,14 @@ export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-pushd clr-build ; make test ||: ; popd
+cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1536429499
+export SOURCE_DATE_EPOCH=1539610206
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/extra-cmake-modules
-cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/doc/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
-cp attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/doc/extra-cmake-modules/attic_modules_COPYING-CMAKE-SCRIPTS
+mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
+cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
+cp attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/attic_modules_COPYING-CMAKE-SCRIPTS
 pushd clr-build
 %make_install
 popd
@@ -329,12 +333,12 @@ popd
 /usr/share/doc/ECM/html/toolchain/Android.html
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
-/usr/share/doc/extra-cmake-modules/attic_modules_COPYING-CMAKE-SCRIPTS
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
+/usr/share/package-licenses/extra-cmake-modules/attic_modules_COPYING-CMAKE-SCRIPTS
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/man7/ecm-developer.7
 /usr/share/man/man7/ecm-find-modules.7
 /usr/share/man/man7/ecm-kde-modules.7

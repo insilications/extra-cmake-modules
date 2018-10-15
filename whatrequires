@@ -5,6 +5,7 @@ bluedevil
 breeze
 cantor
 extra-cmake-modules
+kcodecs
 kde-cli-tools
 kinfocenter
 kio-extras

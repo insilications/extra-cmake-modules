@@ -4,6 +4,7 @@ Vulkan-Tools
 bluedevil
 breeze
 cantor
+extra-cmake-modules
 kde-cli-tools
 kinfocenter
 kio-extras

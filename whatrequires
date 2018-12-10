@@ -1,12 +1,19 @@
 # This file contains recursive sources that require this package
+VTK
 Vulkan-Loader
 Vulkan-Tools
+akonadi
+akonadi-mime
+ark
 baloo
+blender
 bluedevil
 breeze
 cantor
+createrepo_c
 extra-cmake-modules
 frameworkintegration
+kbackup
 kcodecs
 kcoreaddons
 kde-cli-tools
@@ -19,6 +26,8 @@ kimageformats
 kinfocenter
 kinit
 kio-extras
+kmail-account-wizard
+kpkpass
 krita
 kscreenlocker
 ktexteditor
@@ -28,11 +37,15 @@ kwindowsystem
 lensfun
 libkscreen
 oxygen
+palapeli
 phonon
 plasma-desktop
 plasma-framework
 plasma-integration
 plasma-pa
 plasma-workspace
+powerdevil
+qca-qt5
+spectacle
 webkitgtk
 xdg-desktop-portal-kde

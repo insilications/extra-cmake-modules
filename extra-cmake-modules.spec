@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.52.0
-Release  : 17
-URL      : https://download.kde.org/stable/frameworks/5.52/extra-cmake-modules-5.52.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.52/extra-cmake-modules-5.52.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.52/extra-cmake-modules-5.52.0.tar.xz.sig
+Version  : 5.53.0
+Release  : 18
+URL      : https://download.kde.org/stable/frameworks/5.53/extra-cmake-modules-5.53.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.53/extra-cmake-modules-5.53.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.53/extra-cmake-modules-5.53.0.tar.xz.sig
 Summary  : KF5CoreAddons test
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -87,7 +87,7 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.52.0
+%setup -q -n extra-cmake-modules-5.53.0
 %patch1 -p1
 
 %build
@@ -95,11 +95,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1541864511
+export SOURCE_DATE_EPOCH=1544473216
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %check
@@ -110,7 +110,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1541864511
+export SOURCE_DATE_EPOCH=1544473216
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
@@ -133,6 +133,7 @@ popd
 /usr/share/ECM/find-modules/FindIcoTool.cmake
 /usr/share/ECM/find-modules/FindInotify.cmake
 /usr/share/ECM/find-modules/FindKF5.cmake
+/usr/share/ECM/find-modules/FindLibExiv2.cmake
 /usr/share/ECM/find-modules/FindLibGit2.cmake
 /usr/share/ECM/find-modules/FindOpenEXR.cmake
 /usr/share/ECM/find-modules/FindPng2Ico.cmake
@@ -206,6 +207,7 @@ popd
 /usr/share/doc/ECM/html/_sources/find-module/FindGLIB2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindIcoTool.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindKF5.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/FindLibExiv2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindLibGit2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindOpenEXR.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindPng2Ico.rst.txt
@@ -282,6 +284,7 @@ popd
 /usr/share/doc/ECM/html/find-module/FindGLIB2.html
 /usr/share/doc/ECM/html/find-module/FindIcoTool.html
 /usr/share/doc/ECM/html/find-module/FindKF5.html
+/usr/share/doc/ECM/html/find-module/FindLibExiv2.html
 /usr/share/doc/ECM/html/find-module/FindLibGit2.html
 /usr/share/doc/ECM/html/find-module/FindOpenEXR.html
 /usr/share/doc/ECM/html/find-module/FindPng2Ico.html

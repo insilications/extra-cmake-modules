@@ -6,7 +6,7 @@
 #
 Name     : extra-cmake-modules
 Version  : 5.54.0
-Release  : 22
+Release  : 23
 URL      : https://download.kde.org/stable/frameworks/5.54/extra-cmake-modules-5.54.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.54/extra-cmake-modules-5.54.0.tar.xz
 Source99 : https://download.kde.org/stable/frameworks/5.54/extra-cmake-modules-5.54.0.tar.xz.sig

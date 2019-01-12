@@ -11,6 +11,7 @@ bluedevil
 breeze
 cantor
 createrepo_c
+darktable
 extra-cmake-modules
 frameworkintegration
 kbackup
@@ -36,6 +37,7 @@ kwin
 kwindowsystem
 lensfun
 libkscreen
+okular
 oxygen
 palapeli
 phonon
@@ -46,6 +48,7 @@ plasma-pa
 plasma-workspace
 powerdevil
 qca-qt5
+sddm
 spectacle
 webkitgtk
 xdg-desktop-portal-kde

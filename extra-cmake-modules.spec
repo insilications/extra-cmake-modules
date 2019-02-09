@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.54.0
-Release  : 24
-URL      : https://download.kde.org/stable/frameworks/5.54/extra-cmake-modules-5.54.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.54/extra-cmake-modules-5.54.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.54/extra-cmake-modules-5.54.0.tar.xz.sig
+Version  : 5.55.0
+Release  : 25
+URL      : https://download.kde.org/stable/frameworks/5.55/extra-cmake-modules-5.55.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.55/extra-cmake-modules-5.55.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.55/extra-cmake-modules-5.55.0.tar.xz.sig
 Summary  : Extra modules and scripts for CMake
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -87,7 +87,7 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.54.0
+%setup -q -n extra-cmake-modules-5.55.0
 %patch1 -p1
 
 %build
@@ -95,7 +95,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547310197
+export SOURCE_DATE_EPOCH=1549725650
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -110,7 +110,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1547310197
+export SOURCE_DATE_EPOCH=1549725650
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
@@ -206,16 +206,20 @@ popd
 %defattr(0644,root,root,0755)
 /usr/share/doc/ECM/html/_sources/find-module/FindEGL.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindGLIB2.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/FindGperf.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindIcoTool.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/FindInotify.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindKF5.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindLibExiv2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindLibGit2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindOpenEXR.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/FindPhoneNumber.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindPng2Ico.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindPoppler.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindPulseAudio.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindQtWaylandScanner.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindSasl2.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/FindSeccomp.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindSharedMimeInfo.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindWayland.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindWaylandScanner.rst.txt
@@ -243,17 +247,20 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMGenerateHeaders.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGeneratePkgConfigFile.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGeneratePriFile.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMGenerateQmlTypes.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMInstallIcons.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMMarkAsTest.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMMarkNonGuiExecutable.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMOptionalAddSubdirectory.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMPackageConfigHelpers.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMPoQmTools.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMQMLModules.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMQtDeclareLoggingCategory.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMSetupQtPluginMacroNames.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMSetupVersion.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMUninstallTarget.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMUseFindModules.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMWinResolveSymlinks.rst.txt
 /usr/share/doc/ECM/html/_sources/toolchain/Android.rst.txt
 /usr/share/doc/ECM/html/_static/ajax-loader.gif
 /usr/share/doc/ECM/html/_static/basic.css
@@ -284,16 +291,20 @@ popd
 /usr/share/doc/ECM/html/_static/websupport.js
 /usr/share/doc/ECM/html/find-module/FindEGL.html
 /usr/share/doc/ECM/html/find-module/FindGLIB2.html
+/usr/share/doc/ECM/html/find-module/FindGperf.html
 /usr/share/doc/ECM/html/find-module/FindIcoTool.html
+/usr/share/doc/ECM/html/find-module/FindInotify.html
 /usr/share/doc/ECM/html/find-module/FindKF5.html
 /usr/share/doc/ECM/html/find-module/FindLibExiv2.html
 /usr/share/doc/ECM/html/find-module/FindLibGit2.html
 /usr/share/doc/ECM/html/find-module/FindOpenEXR.html
+/usr/share/doc/ECM/html/find-module/FindPhoneNumber.html
 /usr/share/doc/ECM/html/find-module/FindPng2Ico.html
 /usr/share/doc/ECM/html/find-module/FindPoppler.html
 /usr/share/doc/ECM/html/find-module/FindPulseAudio.html
 /usr/share/doc/ECM/html/find-module/FindQtWaylandScanner.html
 /usr/share/doc/ECM/html/find-module/FindSasl2.html
+/usr/share/doc/ECM/html/find-module/FindSeccomp.html
 /usr/share/doc/ECM/html/find-module/FindSharedMimeInfo.html
 /usr/share/doc/ECM/html/find-module/FindWayland.html
 /usr/share/doc/ECM/html/find-module/FindWaylandScanner.html
@@ -322,17 +333,20 @@ popd
 /usr/share/doc/ECM/html/module/ECMGenerateHeaders.html
 /usr/share/doc/ECM/html/module/ECMGeneratePkgConfigFile.html
 /usr/share/doc/ECM/html/module/ECMGeneratePriFile.html
+/usr/share/doc/ECM/html/module/ECMGenerateQmlTypes.html
 /usr/share/doc/ECM/html/module/ECMInstallIcons.html
 /usr/share/doc/ECM/html/module/ECMMarkAsTest.html
 /usr/share/doc/ECM/html/module/ECMMarkNonGuiExecutable.html
 /usr/share/doc/ECM/html/module/ECMOptionalAddSubdirectory.html
 /usr/share/doc/ECM/html/module/ECMPackageConfigHelpers.html
 /usr/share/doc/ECM/html/module/ECMPoQmTools.html
+/usr/share/doc/ECM/html/module/ECMQMLModules.html
 /usr/share/doc/ECM/html/module/ECMQtDeclareLoggingCategory.html
 /usr/share/doc/ECM/html/module/ECMSetupQtPluginMacroNames.html
 /usr/share/doc/ECM/html/module/ECMSetupVersion.html
 /usr/share/doc/ECM/html/module/ECMUninstallTarget.html
 /usr/share/doc/ECM/html/module/ECMUseFindModules.html
+/usr/share/doc/ECM/html/module/ECMWinResolveSymlinks.html
 /usr/share/doc/ECM/html/search.html
 /usr/share/doc/ECM/html/searchindex.js
 /usr/share/doc/ECM/html/toolchain/Android.html

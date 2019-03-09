@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.55.0
-Release  : 25
-URL      : https://download.kde.org/stable/frameworks/5.55/extra-cmake-modules-5.55.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.55/extra-cmake-modules-5.55.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.55/extra-cmake-modules-5.55.0.tar.xz.sig
+Version  : 5.56.0
+Release  : 26
+URL      : https://download.kde.org/stable/frameworks/5.56/extra-cmake-modules-5.56.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.56/extra-cmake-modules-5.56.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.56/extra-cmake-modules-5.56.0.tar.xz.sig
 Summary  : Extra modules and scripts for CMake
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -21,7 +21,6 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
 BuildRequires : doxygen
-BuildRequires : extra-cmake-modules pkgconfig(egl)
 BuildRequires : extra-cmake-modules qttools-dev
 BuildRequires : extra-cmake-modules wayland
 BuildRequires : glibc-dev
@@ -35,6 +34,7 @@ BuildRequires : pkgconfig(exiv2)
 BuildRequires : pkgconfig(fontconfig)
 BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gobject-2.0)
+BuildRequires : pkgconfig(libcanberra)
 BuildRequires : pkgconfig(libpcre)
 BuildRequires : pkgconfig(libpulse)
 BuildRequires : pkgconfig(libpulse-mainloop-glib)
@@ -87,7 +87,7 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.55.0
+%setup -q -n extra-cmake-modules-5.56.0
 %patch1 -p1
 
 %build
@@ -95,9 +95,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549725650
+export SOURCE_DATE_EPOCH=1552141938
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
@@ -110,7 +111,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1549725650
+export SOURCE_DATE_EPOCH=1552141938
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
@@ -127,6 +128,7 @@ popd
 /usr/share/ECM/cmake/ECMConfig.cmake
 /usr/share/ECM/cmake/ECMConfigVersion.cmake
 /usr/share/ECM/find-modules/ECMFindModuleHelpersStub.cmake
+/usr/share/ECM/find-modules/FindCanberra.cmake
 /usr/share/ECM/find-modules/FindEGL.cmake
 /usr/share/ECM/find-modules/FindGLIB2.cmake
 /usr/share/ECM/find-modules/FindGperf.cmake
@@ -204,6 +206,7 @@ popd
 
 %files doc
 %defattr(0644,root,root,0755)
+/usr/share/doc/ECM/html/_sources/find-module/FindCanberra.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindEGL.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindGLIB2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindGperf.rst.txt
@@ -289,6 +292,7 @@ popd
 /usr/share/doc/ECM/html/_static/up-pressed.png
 /usr/share/doc/ECM/html/_static/up.png
 /usr/share/doc/ECM/html/_static/websupport.js
+/usr/share/doc/ECM/html/find-module/FindCanberra.html
 /usr/share/doc/ECM/html/find-module/FindEGL.html
 /usr/share/doc/ECM/html/find-module/FindGLIB2.html
 /usr/share/doc/ECM/html/find-module/FindGperf.html

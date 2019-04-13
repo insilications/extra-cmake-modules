@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.56.0
-Release  : 26
-URL      : https://download.kde.org/stable/frameworks/5.56/extra-cmake-modules-5.56.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.56/extra-cmake-modules-5.56.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.56/extra-cmake-modules-5.56.0.tar.xz.sig
+Version  : 5.57.0
+Release  : 27
+URL      : https://download.kde.org/stable/frameworks/5.57/extra-cmake-modules-5.57.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.57/extra-cmake-modules-5.57.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.57/extra-cmake-modules-5.57.0.tar.xz.sig
 Summary  : Extra modules and scripts for CMake
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -39,6 +39,7 @@ BuildRequires : pkgconfig(libpcre)
 BuildRequires : pkgconfig(libpulse)
 BuildRequires : pkgconfig(libpulse-mainloop-glib)
 BuildRequires : pkgconfig(libseccomp)
+BuildRequires : pkgconfig(libudev)
 BuildRequires : pkgconfig(libusb-1.0)
 BuildRequires : pkgconfig(sqlite3)
 BuildRequires : pkgconfig(x11-xcb)
@@ -87,7 +88,7 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.56.0
+%setup -q -n extra-cmake-modules-5.57.0
 %patch1 -p1
 
 %build
@@ -95,10 +96,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552141938
+export SOURCE_DATE_EPOCH=1555166638
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
 make  %{?_smp_mflags}
 popd
@@ -111,7 +111,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1552141938
+export SOURCE_DATE_EPOCH=1555166638
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
@@ -130,6 +130,7 @@ popd
 /usr/share/ECM/find-modules/ECMFindModuleHelpersStub.cmake
 /usr/share/ECM/find-modules/FindCanberra.cmake
 /usr/share/ECM/find-modules/FindEGL.cmake
+/usr/share/ECM/find-modules/FindFontconfig.cmake
 /usr/share/ECM/find-modules/FindGLIB2.cmake
 /usr/share/ECM/find-modules/FindGperf.cmake
 /usr/share/ECM/find-modules/FindIcoTool.cmake
@@ -148,6 +149,7 @@ popd
 /usr/share/ECM/find-modules/FindSasl2.cmake
 /usr/share/ECM/find-modules/FindSeccomp.cmake
 /usr/share/ECM/find-modules/FindSharedMimeInfo.cmake
+/usr/share/ECM/find-modules/FindUDev.cmake
 /usr/share/ECM/find-modules/FindWayland.cmake
 /usr/share/ECM/find-modules/FindWaylandScanner.cmake
 /usr/share/ECM/find-modules/FindX11_XCB.cmake
@@ -208,6 +210,7 @@ popd
 %defattr(0644,root,root,0755)
 /usr/share/doc/ECM/html/_sources/find-module/FindCanberra.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindEGL.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/FindFontconfig.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindGLIB2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindGperf.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindIcoTool.rst.txt
@@ -224,6 +227,7 @@ popd
 /usr/share/doc/ECM/html/_sources/find-module/FindSasl2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindSeccomp.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindSharedMimeInfo.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/FindUDev.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindWayland.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindWaylandScanner.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindX11_XCB.rst.txt
@@ -265,17 +269,11 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMUseFindModules.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMWinResolveSymlinks.rst.txt
 /usr/share/doc/ECM/html/_sources/toolchain/Android.rst.txt
-/usr/share/doc/ECM/html/_static/ajax-loader.gif
 /usr/share/doc/ECM/html/_static/basic.css
 /usr/share/doc/ECM/html/_static/classic.css
-/usr/share/doc/ECM/html/_static/comment-bright.png
-/usr/share/doc/ECM/html/_static/comment-close.png
-/usr/share/doc/ECM/html/_static/comment.png
 /usr/share/doc/ECM/html/_static/default.css
 /usr/share/doc/ECM/html/_static/doctools.js
 /usr/share/doc/ECM/html/_static/documentation_options.js
-/usr/share/doc/ECM/html/_static/down-pressed.png
-/usr/share/doc/ECM/html/_static/down.png
 /usr/share/doc/ECM/html/_static/ecm.css
 /usr/share/doc/ECM/html/_static/file.png
 /usr/share/doc/ECM/html/_static/jquery-3.2.1.js
@@ -289,11 +287,9 @@ popd
 /usr/share/doc/ECM/html/_static/sidebar.js
 /usr/share/doc/ECM/html/_static/underscore-1.3.1.js
 /usr/share/doc/ECM/html/_static/underscore.js
-/usr/share/doc/ECM/html/_static/up-pressed.png
-/usr/share/doc/ECM/html/_static/up.png
-/usr/share/doc/ECM/html/_static/websupport.js
 /usr/share/doc/ECM/html/find-module/FindCanberra.html
 /usr/share/doc/ECM/html/find-module/FindEGL.html
+/usr/share/doc/ECM/html/find-module/FindFontconfig.html
 /usr/share/doc/ECM/html/find-module/FindGLIB2.html
 /usr/share/doc/ECM/html/find-module/FindGperf.html
 /usr/share/doc/ECM/html/find-module/FindIcoTool.html
@@ -310,6 +306,7 @@ popd
 /usr/share/doc/ECM/html/find-module/FindSasl2.html
 /usr/share/doc/ECM/html/find-module/FindSeccomp.html
 /usr/share/doc/ECM/html/find-module/FindSharedMimeInfo.html
+/usr/share/doc/ECM/html/find-module/FindUDev.html
 /usr/share/doc/ECM/html/find-module/FindWayland.html
 /usr/share/doc/ECM/html/find-module/FindWaylandScanner.html
 /usr/share/doc/ECM/html/find-module/FindX11_XCB.html

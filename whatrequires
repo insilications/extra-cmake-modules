@@ -1,4 +1,5 @@
 # This file contains recursive sources that require this package
+SFML
 VTK
 Vulkan-Loader
 Vulkan-Tools
@@ -71,6 +72,7 @@ powerdevil
 qca-qt5
 sddm
 spectacle
+supertuxkart
 webkitgtk
 wireshark
 xdg-desktop-portal-kde

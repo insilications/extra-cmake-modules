@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.61.0
-Release  : 35
-URL      : https://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61.0.tar.xz
-Source1 : https://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61.0.tar.xz.sig
+Version  : 5.62.0
+Release  : 36
+URL      : https://download.kde.org/stable/frameworks/5.62/extra-cmake-modules-5.62.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.62/extra-cmake-modules-5.62.0.tar.xz
+Source1 : https://download.kde.org/stable/frameworks/5.62/extra-cmake-modules-5.62.0.tar.xz.sig
 Summary  : Extra modules and scripts for CMake
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -88,7 +88,7 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.61.0
+%setup -q -n extra-cmake-modules-5.62.0
 %patch1 -p1
 
 %build
@@ -96,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565577371
+export SOURCE_DATE_EPOCH=1568753405
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -120,7 +120,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1565577371
+export SOURCE_DATE_EPOCH=1568753405
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
@@ -178,6 +178,7 @@ popd
 /usr/share/ECM/kde-modules/prefix.sh.cmake
 /usr/share/ECM/modules/ECMAddAppIcon.cmake
 /usr/share/ECM/modules/ECMAddQch.cmake
+/usr/share/ECM/modules/ECMAddQtDesignerPlugin.cmake
 /usr/share/ECM/modules/ECMAddTests.cmake
 /usr/share/ECM/modules/ECMCoverageOption.cmake
 /usr/share/ECM/modules/ECMCreateQmFromPoFiles.cmake
@@ -256,6 +257,7 @@ popd
 /usr/share/doc/ECM/html/_sources/manual/ecm.7.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMAddAppIcon.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMAddQch.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMAddQtDesignerPlugin.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMAddTests.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMCoverageOption.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMCreateQmFromPoFiles.rst.txt
@@ -286,7 +288,7 @@ popd
 /usr/share/doc/ECM/html/_static/documentation_options.js
 /usr/share/doc/ECM/html/_static/ecm.css
 /usr/share/doc/ECM/html/_static/file.png
-/usr/share/doc/ECM/html/_static/jquery-3.2.1.js
+/usr/share/doc/ECM/html/_static/jquery-3.4.1.js
 /usr/share/doc/ECM/html/_static/jquery.js
 /usr/share/doc/ECM/html/_static/kde-favicon.ico
 /usr/share/doc/ECM/html/_static/language_data.js
@@ -336,6 +338,7 @@ popd
 /usr/share/doc/ECM/html/manual/ecm.7.html
 /usr/share/doc/ECM/html/module/ECMAddAppIcon.html
 /usr/share/doc/ECM/html/module/ECMAddQch.html
+/usr/share/doc/ECM/html/module/ECMAddQtDesignerPlugin.html
 /usr/share/doc/ECM/html/module/ECMAddTests.html
 /usr/share/doc/ECM/html/module/ECMCoverageOption.html
 /usr/share/doc/ECM/html/module/ECMCreateQmFromPoFiles.html

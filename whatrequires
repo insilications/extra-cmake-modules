@@ -24,6 +24,7 @@ kcoreaddons
 kde-cli-tools
 kdelibs4support
 kdenlive
+kdepim-runtime
 kfilemetadata
 kglobalaccel
 kguiaddons
@@ -71,7 +72,9 @@ polkit-qt
 powerdevil
 qca-qt5
 sddm
+simplescreenrecorder
 spectacle
+step
 supertuxkart
 telepathy-qt
 webkitgtk

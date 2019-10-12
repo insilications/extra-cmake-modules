@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.62.0
-Release  : 36
-URL      : https://download.kde.org/stable/frameworks/5.62/extra-cmake-modules-5.62.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.62/extra-cmake-modules-5.62.0.tar.xz
-Source1 : https://download.kde.org/stable/frameworks/5.62/extra-cmake-modules-5.62.0.tar.xz.sig
+Version  : 5.63.0
+Release  : 37
+URL      : https://download.kde.org/stable/frameworks/5.63/extra-cmake-modules-5.63.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.63/extra-cmake-modules-5.63.0.tar.xz
+Source1 : https://download.kde.org/stable/frameworks/5.63/extra-cmake-modules-5.63.0.tar.xz.sig
 Summary  : Extra modules and scripts for CMake
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -88,7 +88,7 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.62.0
+%setup -q -n extra-cmake-modules-5.63.0
 %patch1 -p1
 
 %build
@@ -96,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568753405
+export SOURCE_DATE_EPOCH=1570917924
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -109,7 +109,7 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %check
@@ -120,7 +120,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1568753405
+export SOURCE_DATE_EPOCH=1570917924
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
@@ -205,6 +205,7 @@ popd
 /usr/share/ECM/modules/ECMQueryQmake.cmake
 /usr/share/ECM/modules/ECMSetupQtPluginMacroNames.cmake
 /usr/share/ECM/modules/ECMSetupVersion.cmake
+/usr/share/ECM/modules/ECMSourceVersionControl.cmake
 /usr/share/ECM/modules/ECMUninstallTarget.cmake
 /usr/share/ECM/modules/ECMUseFindModules.cmake
 /usr/share/ECM/modules/ECMVersionHeader.h.in
@@ -277,6 +278,7 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMQtDeclareLoggingCategory.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMSetupQtPluginMacroNames.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMSetupVersion.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMSourceVersionControl.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMUninstallTarget.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMUseFindModules.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMWinResolveSymlinks.rst.txt
@@ -358,6 +360,7 @@ popd
 /usr/share/doc/ECM/html/module/ECMQtDeclareLoggingCategory.html
 /usr/share/doc/ECM/html/module/ECMSetupQtPluginMacroNames.html
 /usr/share/doc/ECM/html/module/ECMSetupVersion.html
+/usr/share/doc/ECM/html/module/ECMSourceVersionControl.html
 /usr/share/doc/ECM/html/module/ECMUninstallTarget.html
 /usr/share/doc/ECM/html/module/ECMUseFindModules.html
 /usr/share/doc/ECM/html/module/ECMWinResolveSymlinks.html

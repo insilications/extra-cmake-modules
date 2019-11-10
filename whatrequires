@@ -1,4 +1,5 @@
 # This file contains recursive sources that require this package
+ParaView
 SFML
 VTK
 Vulkan-Loader
@@ -55,9 +56,11 @@ libfm-qt
 libkgapi
 libkscreen
 libksieve
+librealsense
 lxqt-config
 lxqt-panel
 messagelib
+obs-studio
 okular
 openal-soft
 oxygen
@@ -78,4 +81,3 @@ step
 supertuxkart
 webkitgtk
 wireshark
-xdg-desktop-portal-kde

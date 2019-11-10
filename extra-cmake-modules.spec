@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.63.0
-Release  : 37
-URL      : https://download.kde.org/stable/frameworks/5.63/extra-cmake-modules-5.63.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.63/extra-cmake-modules-5.63.0.tar.xz
-Source1 : https://download.kde.org/stable/frameworks/5.63/extra-cmake-modules-5.63.0.tar.xz.sig
+Version  : 5.64.0
+Release  : 38
+URL      : https://download.kde.org/stable/frameworks/5.64/extra-cmake-modules-5.64.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.64/extra-cmake-modules-5.64.0.tar.xz
+Source1 : https://download.kde.org/stable/frameworks/5.64/extra-cmake-modules-5.64.0.tar.xz.sig
 Summary  : Extra modules and scripts for CMake
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -88,7 +88,7 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.63.0
+%setup -q -n extra-cmake-modules-5.64.0
 %patch1 -p1
 
 %build
@@ -96,7 +96,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570917924
+export SOURCE_DATE_EPOCH=1573357425
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -120,11 +120,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1570917924
+export SOURCE_DATE_EPOCH=1573357425
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
-cp COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
-cp attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/attic_modules_COPYING-CMAKE-SCRIPTS
+cp %{_builddir}/extra-cmake-modules-5.64.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.64.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -169,12 +169,14 @@ popd
 /usr/share/ECM/find-modules/run-sip.py
 /usr/share/ECM/find-modules/sip_generator.py
 /usr/share/ECM/kde-modules/KDECMakeSettings.cmake
+/usr/share/ECM/kde-modules/KDEClangFormat.cmake
 /usr/share/ECM/kde-modules/KDECompilerSettings.cmake
 /usr/share/ECM/kde-modules/KDEFrameworkCompilerSettings.cmake
 /usr/share/ECM/kde-modules/KDEInstallDirs.cmake
 /usr/share/ECM/kde-modules/KDEInstallDirs.cmake.orig
 /usr/share/ECM/kde-modules/KDEPackageAppTemplates.cmake
 /usr/share/ECM/kde-modules/appstreamtest.cmake
+/usr/share/ECM/kde-modules/clang-format.cmake
 /usr/share/ECM/kde-modules/prefix.sh.cmake
 /usr/share/ECM/modules/ECMAddAppIcon.cmake
 /usr/share/ECM/modules/ECMAddQch.cmake
@@ -185,6 +187,7 @@ popd
 /usr/share/ECM/modules/ECMEnableSanitizers.cmake
 /usr/share/ECM/modules/ECMFindModuleHelpers.cmake
 /usr/share/ECM/modules/ECMFindQMLModule.cmake.in
+/usr/share/ECM/modules/ECMGenerateExportHeader.cmake
 /usr/share/ECM/modules/ECMGenerateHeaders.cmake
 /usr/share/ECM/modules/ECMGeneratePkgConfigFile.cmake
 /usr/share/ECM/modules/ECMGeneratePriFile.cmake
@@ -264,6 +267,7 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMCreateQmFromPoFiles.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMEnableSanitizers.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMFindModuleHelpers.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMGenerateExportHeader.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGenerateHeaders.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGeneratePkgConfigFile.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGeneratePriFile.rst.txt
@@ -346,6 +350,7 @@ popd
 /usr/share/doc/ECM/html/module/ECMCreateQmFromPoFiles.html
 /usr/share/doc/ECM/html/module/ECMEnableSanitizers.html
 /usr/share/doc/ECM/html/module/ECMFindModuleHelpers.html
+/usr/share/doc/ECM/html/module/ECMGenerateExportHeader.html
 /usr/share/doc/ECM/html/module/ECMGenerateHeaders.html
 /usr/share/doc/ECM/html/module/ECMGeneratePkgConfigFile.html
 /usr/share/doc/ECM/html/module/ECMGeneratePriFile.html
@@ -370,8 +375,7 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/extra-cmake-modules/COPYING-CMAKE-SCRIPTS
-/usr/share/package-licenses/extra-cmake-modules/attic_modules_COPYING-CMAKE-SCRIPTS
+/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
 
 %files man
 %defattr(0644,root,root,0755)

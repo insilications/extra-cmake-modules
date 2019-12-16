@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.64.0
-Release  : 38
-URL      : https://download.kde.org/stable/frameworks/5.64/extra-cmake-modules-5.64.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.64/extra-cmake-modules-5.64.0.tar.xz
-Source1 : https://download.kde.org/stable/frameworks/5.64/extra-cmake-modules-5.64.0.tar.xz.sig
+Version  : 5.65.0
+Release  : 39
+URL      : https://download.kde.org/stable/frameworks/5.65/extra-cmake-modules-5.65.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.65/extra-cmake-modules-5.65.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.65/extra-cmake-modules-5.65.0.tar.xz.sig
 Summary  : Extra modules and scripts for CMake
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -88,7 +88,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.64.0
+%setup -q -n extra-cmake-modules-5.65.0
+cd %{_builddir}/extra-cmake-modules-5.65.0
 %patch1 -p1
 
 %build
@@ -96,7 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573357425
+export SOURCE_DATE_EPOCH=1576507162
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -120,11 +121,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1573357425
+export SOURCE_DATE_EPOCH=1576507162
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
-cp %{_builddir}/extra-cmake-modules-5.64.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/extra-cmake-modules-5.64.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.65.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.65.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -173,7 +174,6 @@ popd
 /usr/share/ECM/kde-modules/KDECompilerSettings.cmake
 /usr/share/ECM/kde-modules/KDEFrameworkCompilerSettings.cmake
 /usr/share/ECM/kde-modules/KDEInstallDirs.cmake
-/usr/share/ECM/kde-modules/KDEInstallDirs.cmake.orig
 /usr/share/ECM/kde-modules/KDEPackageAppTemplates.cmake
 /usr/share/ECM/kde-modules/appstreamtest.cmake
 /usr/share/ECM/kde-modules/clang-format.cmake

@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.67.0
-Release  : 41
-URL      : https://download.kde.org/stable/frameworks/5.67/extra-cmake-modules-5.67.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.67/extra-cmake-modules-5.67.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.67/extra-cmake-modules-5.67.0.tar.xz.sig
+Version  : 5.68.0
+Release  : 42
+URL      : https://download.kde.org/stable/frameworks/5.68/extra-cmake-modules-5.68.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.68/extra-cmake-modules-5.68.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.68/extra-cmake-modules-5.68.0.tar.xz.sig
 Summary  : Extra modules and scripts for CMake
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -88,8 +88,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.67.0
-cd %{_builddir}/extra-cmake-modules-5.67.0
+%setup -q -n extra-cmake-modules-5.68.0
+cd %{_builddir}/extra-cmake-modules-5.68.0
 %patch1 -p1
 
 %build
@@ -97,7 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581271214
+export SOURCE_DATE_EPOCH=1584293108
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -121,11 +121,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1581271214
+export SOURCE_DATE_EPOCH=1584293108
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
-cp %{_builddir}/extra-cmake-modules-5.67.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/extra-cmake-modules-5.67.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.68.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.68.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -217,6 +217,7 @@ popd
 /usr/share/ECM/test-modules/test_execute_and_compare.cmake
 /usr/share/ECM/toolchain/Android.cmake
 /usr/share/ECM/toolchain/ECMAndroidDeployQt.cmake
+/usr/share/ECM/toolchain/deployment-file-qt514.json.in
 /usr/share/ECM/toolchain/deployment-file.json.in
 /usr/share/ECM/toolchain/hasMainSymbol.cmake
 /usr/share/ECM/toolchain/specifydependencies.cmake

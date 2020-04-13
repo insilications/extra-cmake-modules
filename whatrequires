@@ -1,5 +1,4 @@
 # This file contains recursive sources that require this package
-ParaView
 SFML
 VTK
 Vulkan-Loader
@@ -26,6 +25,8 @@ kde-cli-tools
 kdelibs4support
 kdenlive
 kdepim-runtime
+kdesignerplugin
+kdoctools
 kfilemetadata
 kglobalaccel
 kguiaddons

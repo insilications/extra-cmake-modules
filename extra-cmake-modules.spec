@@ -6,7 +6,7 @@
 #
 Name     : extra-cmake-modules
 Version  : 5.70.0
-Release  : 44
+Release  : 45
 URL      : https://download.kde.org/stable/frameworks/5.70/extra-cmake-modules-5.70.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.70/extra-cmake-modules-5.70.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.70/extra-cmake-modules-5.70.0.tar.xz.sig
@@ -18,12 +18,7 @@ Requires: extra-cmake-modules-license = %{version}-%{release}
 Requires: extra-cmake-modules-man = %{version}-%{release}
 BuildRequires : Sphinx
 BuildRequires : buildreq-cmake
-BuildRequires : buildreq-kde
-BuildRequires : buildreq-qmake
 BuildRequires : doxygen
-BuildRequires : extra-cmake-modules qttools-dev
-BuildRequires : extra-cmake-modules wayland
-BuildRequires : extra-cmake-modules-data
 BuildRequires : glibc-dev
 BuildRequires : libX11-dev libICE-dev libSM-dev libXau-dev libXcomposite-dev libXcursor-dev libXdamage-dev libXdmcp-dev libXext-dev libXfixes-dev libXft-dev libXi-dev libXinerama-dev libXi-dev libXmu-dev libXpm-dev libXrandr-dev libXrender-dev libXres-dev libXScrnSaver-dev libXt-dev libXtst-dev libXv-dev libXxf86misc-dev libXxf86vm-dev
 BuildRequires : openssl-dev
@@ -44,7 +39,6 @@ BuildRequires : pkgconfig(libudev)
 BuildRequires : pkgconfig(libusb-1.0)
 BuildRequires : pkgconfig(sqlite3)
 BuildRequires : pkgconfig(x11-xcb)
-BuildRequires : plasma-framework-dev
 BuildRequires : python3
 BuildRequires : qtbase-dev
 BuildRequires : qtdeclarative-dev
@@ -101,7 +95,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589208961
+export SOURCE_DATE_EPOCH=1589500743
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -124,7 +118,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1589208961
+export SOURCE_DATE_EPOCH=1589500743
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp %{_builddir}/extra-cmake-modules-5.70.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987

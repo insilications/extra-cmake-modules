@@ -1,5 +1,11 @@
 # This file contains build requirements that get picked up but are
 # undesirable. One entry per line, no whitespace.
-qttools-extras
-png2ico
+buildreq-kde
+buildreq-qmake
 extra-cmake-modules png2ico
+extra-cmake-modules qttools-dev
+extra-cmake-modules wayland
+extra-cmake-modules-data
+plasma-framework-dev
+png2ico
+qttools-extras

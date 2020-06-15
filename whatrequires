@@ -15,7 +15,6 @@ colord-kde
 createrepo_c
 darktable
 digikam
-extra-cmake-modules
 glfw
 kbackup
 kcodecs
@@ -47,6 +46,7 @@ kscreenlocker
 ksmtp
 ktexteditor
 kwayland
+kwayland-server
 kwin
 kwindowsystem
 kxmlgui

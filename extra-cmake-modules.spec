@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.70.0
-Release  : 45
-URL      : https://download.kde.org/stable/frameworks/5.70/extra-cmake-modules-5.70.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.70/extra-cmake-modules-5.70.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.70/extra-cmake-modules-5.70.0.tar.xz.sig
+Version  : 5.71.0
+Release  : 46
+URL      : https://download.kde.org/stable/frameworks/5.71/extra-cmake-modules-5.71.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.71/extra-cmake-modules-5.71.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.71/extra-cmake-modules-5.71.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -86,8 +86,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.70.0
-cd %{_builddir}/extra-cmake-modules-5.70.0
+%setup -q -n extra-cmake-modules-5.71.0
+cd %{_builddir}/extra-cmake-modules-5.71.0
 %patch1 -p1
 
 %build
@@ -95,7 +95,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589500743
+export SOURCE_DATE_EPOCH=1592237625
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -118,11 +118,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1589500743
+export SOURCE_DATE_EPOCH=1592237625
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
-cp %{_builddir}/extra-cmake-modules-5.70.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/extra-cmake-modules-5.70.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.71.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.71.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -293,7 +293,7 @@ popd
 /usr/share/doc/ECM/html/_static/documentation_options.js
 /usr/share/doc/ECM/html/_static/ecm.css
 /usr/share/doc/ECM/html/_static/file.png
-/usr/share/doc/ECM/html/_static/jquery-3.4.1.js
+/usr/share/doc/ECM/html/_static/jquery-3.5.1.js
 /usr/share/doc/ECM/html/_static/jquery.js
 /usr/share/doc/ECM/html/_static/kde-favicon.ico
 /usr/share/doc/ECM/html/_static/language_data.js

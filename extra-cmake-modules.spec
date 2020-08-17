@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.71.0
-Release  : 46
-URL      : https://download.kde.org/stable/frameworks/5.71/extra-cmake-modules-5.71.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.71/extra-cmake-modules-5.71.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.71/extra-cmake-modules-5.71.0.tar.xz.sig
+Version  : 5.73.0
+Release  : 47
+URL      : https://download.kde.org/stable/frameworks/5.73/extra-cmake-modules-5.73.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.73/extra-cmake-modules-5.73.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.73/extra-cmake-modules-5.73.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause
@@ -86,8 +86,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.71.0
-cd %{_builddir}/extra-cmake-modules-5.71.0
+%setup -q -n extra-cmake-modules-5.73.0
+cd %{_builddir}/extra-cmake-modules-5.73.0
 %patch1 -p1
 
 %build
@@ -95,7 +95,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592237625
+export SOURCE_DATE_EPOCH=1597694978
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -107,7 +107,7 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %check
@@ -118,11 +118,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1592237625
+export SOURCE_DATE_EPOCH=1597694978
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
-cp %{_builddir}/extra-cmake-modules-5.71.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/extra-cmake-modules-5.71.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.73.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.73.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -147,7 +147,6 @@ popd
 /usr/share/ECM/find-modules/FindLibGit2.cmake
 /usr/share/ECM/find-modules/FindOpenEXR.cmake
 /usr/share/ECM/find-modules/FindPhoneNumber.cmake
-/usr/share/ECM/find-modules/FindPng2Ico.cmake
 /usr/share/ECM/find-modules/FindPoppler.cmake
 /usr/share/ECM/find-modules/FindPulseAudio.cmake
 /usr/share/ECM/find-modules/FindPythonModuleGeneration.cmake
@@ -156,6 +155,7 @@ popd
 /usr/share/ECM/find-modules/FindSasl2.cmake
 /usr/share/ECM/find-modules/FindSeccomp.cmake
 /usr/share/ECM/find-modules/FindSharedMimeInfo.cmake
+/usr/share/ECM/find-modules/FindTaglib.cmake
 /usr/share/ECM/find-modules/FindUDev.cmake
 /usr/share/ECM/find-modules/FindWayland.cmake
 /usr/share/ECM/find-modules/FindWaylandScanner.cmake
@@ -179,11 +179,13 @@ popd
 /usr/share/ECM/modules/ECMAddQch.cmake
 /usr/share/ECM/modules/ECMAddQtDesignerPlugin.cmake
 /usr/share/ECM/modules/ECMAddTests.cmake
+/usr/share/ECM/modules/ECMConfiguredInstall.cmake
 /usr/share/ECM/modules/ECMCoverageOption.cmake
 /usr/share/ECM/modules/ECMCreateQmFromPoFiles.cmake
 /usr/share/ECM/modules/ECMEnableSanitizers.cmake
 /usr/share/ECM/modules/ECMFindModuleHelpers.cmake
 /usr/share/ECM/modules/ECMFindQMLModule.cmake.in
+/usr/share/ECM/modules/ECMGenerateDBusServiceFile.cmake
 /usr/share/ECM/modules/ECMGenerateExportHeader.cmake
 /usr/share/ECM/modules/ECMGenerateHeaders.cmake
 /usr/share/ECM/modules/ECMGeneratePkgConfigFile.cmake
@@ -233,13 +235,13 @@ popd
 /usr/share/doc/ECM/html/_sources/find-module/FindLibGit2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindOpenEXR.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindPhoneNumber.rst.txt
-/usr/share/doc/ECM/html/_sources/find-module/FindPng2Ico.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindPoppler.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindPulseAudio.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindQtWaylandScanner.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindSasl2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindSeccomp.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindSharedMimeInfo.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/FindTaglib.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindUDev.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindWayland.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindWaylandScanner.rst.txt
@@ -262,10 +264,12 @@ popd
 /usr/share/doc/ECM/html/_sources/module/ECMAddQch.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMAddQtDesignerPlugin.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMAddTests.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMConfiguredInstall.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMCoverageOption.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMCreateQmFromPoFiles.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMEnableSanitizers.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMFindModuleHelpers.rst.txt
+/usr/share/doc/ECM/html/_sources/module/ECMGenerateDBusServiceFile.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGenerateExportHeader.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGenerateHeaders.rst.txt
 /usr/share/doc/ECM/html/_sources/module/ECMGeneratePkgConfigFile.rst.txt
@@ -316,13 +320,13 @@ popd
 /usr/share/doc/ECM/html/find-module/FindLibGit2.html
 /usr/share/doc/ECM/html/find-module/FindOpenEXR.html
 /usr/share/doc/ECM/html/find-module/FindPhoneNumber.html
-/usr/share/doc/ECM/html/find-module/FindPng2Ico.html
 /usr/share/doc/ECM/html/find-module/FindPoppler.html
 /usr/share/doc/ECM/html/find-module/FindPulseAudio.html
 /usr/share/doc/ECM/html/find-module/FindQtWaylandScanner.html
 /usr/share/doc/ECM/html/find-module/FindSasl2.html
 /usr/share/doc/ECM/html/find-module/FindSeccomp.html
 /usr/share/doc/ECM/html/find-module/FindSharedMimeInfo.html
+/usr/share/doc/ECM/html/find-module/FindTaglib.html
 /usr/share/doc/ECM/html/find-module/FindUDev.html
 /usr/share/doc/ECM/html/find-module/FindWayland.html
 /usr/share/doc/ECM/html/find-module/FindWaylandScanner.html
@@ -346,10 +350,12 @@ popd
 /usr/share/doc/ECM/html/module/ECMAddQch.html
 /usr/share/doc/ECM/html/module/ECMAddQtDesignerPlugin.html
 /usr/share/doc/ECM/html/module/ECMAddTests.html
+/usr/share/doc/ECM/html/module/ECMConfiguredInstall.html
 /usr/share/doc/ECM/html/module/ECMCoverageOption.html
 /usr/share/doc/ECM/html/module/ECMCreateQmFromPoFiles.html
 /usr/share/doc/ECM/html/module/ECMEnableSanitizers.html
 /usr/share/doc/ECM/html/module/ECMFindModuleHelpers.html
+/usr/share/doc/ECM/html/module/ECMGenerateDBusServiceFile.html
 /usr/share/doc/ECM/html/module/ECMGenerateExportHeader.html
 /usr/share/doc/ECM/html/module/ECMGenerateHeaders.html
 /usr/share/doc/ECM/html/module/ECMGeneratePkgConfigFile.html

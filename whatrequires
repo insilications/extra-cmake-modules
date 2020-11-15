@@ -61,6 +61,7 @@ messagelib
 obs-studio
 okular
 openal-soft
+openexr
 oxygen
 palapeli
 phonon
@@ -78,3 +79,4 @@ spectacle
 telepathy-qt
 webkitgtk
 wireshark
+xdg-desktop-portal-kde

@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.76.0
-Release  : 53
-URL      : https://download.kde.org/stable/frameworks/5.76/extra-cmake-modules-5.76.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.76/extra-cmake-modules-5.76.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.76/extra-cmake-modules-5.76.0.tar.xz.sig
+Version  : 5.77.0
+Release  : 54
+URL      : https://download.kde.org/stable/frameworks/5.77/extra-cmake-modules-5.77.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.77/extra-cmake-modules-5.77.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.77/extra-cmake-modules-5.77.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause MIT
@@ -88,8 +88,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.76.0
-cd %{_builddir}/extra-cmake-modules-5.76.0
+%setup -q -n extra-cmake-modules-5.77.0
+cd %{_builddir}/extra-cmake-modules-5.77.0
 %patch1 -p1
 
 %build
@@ -97,7 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1605413794
+export SOURCE_DATE_EPOCH=1607962212
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -120,14 +120,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1605413794
+export SOURCE_DATE_EPOCH=1607962212
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
-cp %{_builddir}/extra-cmake-modules-5.76.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/extra-cmake-modules-5.76.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/extra-cmake-modules-5.76.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/extra-cmake-modules-5.76.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
-cp %{_builddir}/extra-cmake-modules-5.76.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.77.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.77.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/extra-cmake-modules-5.77.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/extra-cmake-modules-5.77.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/extra-cmake-modules-5.77.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -231,6 +231,7 @@ popd
 /usr/share/ECM/toolchain/ECMAndroidDeployQt.cmake
 /usr/share/ECM/toolchain/deployment-file-qt514.json.in
 /usr/share/ECM/toolchain/deployment-file.json.in
+/usr/share/ECM/toolchain/generate-fastlane-metadata.py
 /usr/share/ECM/toolchain/hasMainSymbol.cmake
 /usr/share/ECM/toolchain/specifydependencies.cmake
 

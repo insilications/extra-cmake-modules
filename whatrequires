@@ -1,6 +1,5 @@
 # This file contains recursive sources that require this package
 SFML
-VTK
 Vulkan-Loader
 Vulkan-Tools
 Vulkan-ValidationLayers

@@ -6,7 +6,7 @@
 #
 Name     : extra-cmake-modules
 Version  : 5.78.0
-Release  : 59
+Release  : 60
 URL      : https://download.kde.org/stable/frameworks/5.78/extra-cmake-modules-5.78.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.78/extra-cmake-modules-5.78.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.78/extra-cmake-modules-5.78.0.tar.xz.sig
@@ -98,7 +98,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1611173854
+export SOURCE_DATE_EPOCH=1614196272
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -121,7 +121,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1611173854
+export SOURCE_DATE_EPOCH=1614196272
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp %{_builddir}/extra-cmake-modules-5.78.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
@@ -326,7 +326,7 @@ popd
 /usr/share/doc/ECM/html/_static/pygments.css
 /usr/share/doc/ECM/html/_static/searchtools.js
 /usr/share/doc/ECM/html/_static/sidebar.js
-/usr/share/doc/ECM/html/_static/underscore-1.3.1.js
+/usr/share/doc/ECM/html/_static/underscore-1.12.0.js
 /usr/share/doc/ECM/html/_static/underscore.js
 /usr/share/doc/ECM/html/find-module/FindCanberra.html
 /usr/share/doc/ECM/html/find-module/FindEGL.html

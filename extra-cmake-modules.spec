@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.78.0
-Release  : 60
-URL      : https://download.kde.org/stable/frameworks/5.78/extra-cmake-modules-5.78.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.78/extra-cmake-modules-5.78.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.78/extra-cmake-modules-5.78.0.tar.xz.sig
+Version  : 5.81.0
+Release  : 61
+URL      : https://download.kde.org/stable/frameworks/5.81/extra-cmake-modules-5.81.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.81/extra-cmake-modules-5.81.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.81/extra-cmake-modules-5.81.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause MIT
@@ -31,6 +31,7 @@ BuildRequires : pkgconfig(exiv2)
 BuildRequires : pkgconfig(fontconfig)
 BuildRequires : pkgconfig(glib-2.0)
 BuildRequires : pkgconfig(gobject-2.0)
+BuildRequires : pkgconfig(iso-codes)
 BuildRequires : pkgconfig(libcanberra)
 BuildRequires : pkgconfig(libpcre)
 BuildRequires : pkgconfig(libpulse)
@@ -89,8 +90,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.78.0
-cd %{_builddir}/extra-cmake-modules-5.78.0
+%setup -q -n extra-cmake-modules-5.81.0
+cd %{_builddir}/extra-cmake-modules-5.81.0
 %patch1 -p1
 
 %build
@@ -98,7 +99,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1614196272
+export SOURCE_DATE_EPOCH=1618618651
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -121,14 +122,14 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1614196272
+export SOURCE_DATE_EPOCH=1618618651
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
-cp %{_builddir}/extra-cmake-modules-5.78.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/extra-cmake-modules-5.78.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/extra-cmake-modules-5.78.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/extra-cmake-modules-5.78.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
-cp %{_builddir}/extra-cmake-modules-5.78.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.81.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.81.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/extra-cmake-modules-5.81.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/extra-cmake-modules-5.81.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/extra-cmake-modules-5.81.0/attic/modules/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
 pushd clr-build
 %make_install
 popd
@@ -149,9 +150,11 @@ popd
 /usr/share/ECM/find-modules/FindGradle.cmake
 /usr/share/ECM/find-modules/FindIcoTool.cmake
 /usr/share/ECM/find-modules/FindInotify.cmake
+/usr/share/ECM/find-modules/FindIsoCodes.cmake
 /usr/share/ECM/find-modules/FindKF5.cmake
 /usr/share/ECM/find-modules/FindLibExiv2.cmake
 /usr/share/ECM/find-modules/FindLibGit2.cmake
+/usr/share/ECM/find-modules/FindLibcap.cmake
 /usr/share/ECM/find-modules/FindOpenEXR.cmake
 /usr/share/ECM/find-modules/FindPhoneNumber.cmake
 /usr/share/ECM/find-modules/FindPoppler.cmake
@@ -182,10 +185,13 @@ popd
 /usr/share/ECM/kde-modules/KDEClangFormat.cmake
 /usr/share/ECM/kde-modules/KDECompilerSettings.cmake
 /usr/share/ECM/kde-modules/KDEFrameworkCompilerSettings.cmake
+/usr/share/ECM/kde-modules/KDEGitCommitHooks.cmake
 /usr/share/ECM/kde-modules/KDEInstallDirs.cmake
 /usr/share/ECM/kde-modules/KDEPackageAppTemplates.cmake
 /usr/share/ECM/kde-modules/appstreamtest.cmake
 /usr/share/ECM/kde-modules/clang-format.cmake
+/usr/share/ECM/kde-modules/kde-git-commit-hooks/clang-format.sh
+/usr/share/ECM/kde-modules/kde-git-commit-hooks/pre-commit.in
 /usr/share/ECM/kde-modules/prefix.sh.cmake
 /usr/share/ECM/modules/CheckAtomic.cmake
 /usr/share/ECM/modules/ECMAddAppIcon.cmake
@@ -247,9 +253,11 @@ popd
 /usr/share/doc/ECM/html/_sources/find-module/FindGradle.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindIcoTool.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindInotify.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/FindIsoCodes.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindKF5.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindLibExiv2.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindLibGit2.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/FindLibcap.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindOpenEXR.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindPhoneNumber.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindPoppler.rst.txt
@@ -271,6 +279,7 @@ popd
 /usr/share/doc/ECM/html/_sources/kde-module/KDEClangFormat.rst.txt
 /usr/share/doc/ECM/html/_sources/kde-module/KDECompilerSettings.rst.txt
 /usr/share/doc/ECM/html/_sources/kde-module/KDEFrameworkCompilerSettings.rst.txt
+/usr/share/doc/ECM/html/_sources/kde-module/KDEGitCommitHooks.rst.txt
 /usr/share/doc/ECM/html/_sources/kde-module/KDEInstallDirs.rst.txt
 /usr/share/doc/ECM/html/_sources/kde-module/KDEPackageAppTemplates.rst.txt
 /usr/share/doc/ECM/html/_sources/manual/ecm-developer.7.rst.txt
@@ -336,9 +345,11 @@ popd
 /usr/share/doc/ECM/html/find-module/FindGradle.html
 /usr/share/doc/ECM/html/find-module/FindIcoTool.html
 /usr/share/doc/ECM/html/find-module/FindInotify.html
+/usr/share/doc/ECM/html/find-module/FindIsoCodes.html
 /usr/share/doc/ECM/html/find-module/FindKF5.html
 /usr/share/doc/ECM/html/find-module/FindLibExiv2.html
 /usr/share/doc/ECM/html/find-module/FindLibGit2.html
+/usr/share/doc/ECM/html/find-module/FindLibcap.html
 /usr/share/doc/ECM/html/find-module/FindOpenEXR.html
 /usr/share/doc/ECM/html/find-module/FindPhoneNumber.html
 /usr/share/doc/ECM/html/find-module/FindPoppler.html
@@ -361,6 +372,7 @@ popd
 /usr/share/doc/ECM/html/kde-module/KDEClangFormat.html
 /usr/share/doc/ECM/html/kde-module/KDECompilerSettings.html
 /usr/share/doc/ECM/html/kde-module/KDEFrameworkCompilerSettings.html
+/usr/share/doc/ECM/html/kde-module/KDEGitCommitHooks.html
 /usr/share/doc/ECM/html/kde-module/KDEInstallDirs.html
 /usr/share/doc/ECM/html/kde-module/KDEPackageAppTemplates.html
 /usr/share/doc/ECM/html/manual/ecm-developer.7.html

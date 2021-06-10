@@ -10,6 +10,7 @@ blender
 bluedevil
 breeze
 cantor
+compat-openexr-soname25
 createrepo_c
 darktable
 digikam
@@ -68,7 +69,6 @@ phonon
 plasma-desktop
 plasma-framework
 plasma-integration
-plasma-pa
 plasma-workspace
 polkit-qt
 powerdevil

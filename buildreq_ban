@@ -10,3 +10,4 @@ plasma-framework-dev
 png2ico
 qttools-extras
 extra-cmake-modules pkgconfig(egl)
+karchive-dev

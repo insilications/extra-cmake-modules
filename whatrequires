@@ -43,12 +43,14 @@ kruler
 kscreenlocker
 ksmtp
 ktexteditor
+kwallet-pam
 kwayland
 kwayland-server
 kwin
 kwindowsystem
 kxmlgui
 latte-dock
+layer-shell-qt
 lensfun
 libfm-qt
 libkgapi

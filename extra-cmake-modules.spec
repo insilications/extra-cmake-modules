@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : extra-cmake-modules
-Version  : 5.83.0
-Release  : 64
-URL      : https://download.kde.org/stable/frameworks/5.83/extra-cmake-modules-5.83.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.83/extra-cmake-modules-5.83.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.83/extra-cmake-modules-5.83.0.tar.xz.sig
+Version  : 5.85.0
+Release  : 65
+URL      : https://download.kde.org/stable/frameworks/5.85/extra-cmake-modules-5.85.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.85/extra-cmake-modules-5.85.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.85/extra-cmake-modules-5.85.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-2-Clause BSD-3-Clause MIT
@@ -82,8 +82,8 @@ man components for the extra-cmake-modules package.
 
 
 %prep
-%setup -q -n extra-cmake-modules-5.83.0
-cd %{_builddir}/extra-cmake-modules-5.83.0
+%setup -q -n extra-cmake-modules-5.85.0
+cd %{_builddir}/extra-cmake-modules-5.85.0
 %patch1 -p1
 
 %build
@@ -91,17 +91,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623643623
+export SOURCE_DATE_EPOCH=1630890690
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %cmake .. -DBUILD_TESTING=OFF
 make  %{?_smp_mflags}
 popd
@@ -114,13 +114,13 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1623643623
+export SOURCE_DATE_EPOCH=1630890690
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
-cp %{_builddir}/extra-cmake-modules-5.83.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
-cp %{_builddir}/extra-cmake-modules-5.83.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
-cp %{_builddir}/extra-cmake-modules-5.83.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
-cp %{_builddir}/extra-cmake-modules-5.83.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
+cp %{_builddir}/extra-cmake-modules-5.85.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987
+cp %{_builddir}/extra-cmake-modules-5.85.0/LICENSES/BSD-2-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/680ed9349d3d12bd39ddd36e8c4bc6b1b0cb1c0e
+cp %{_builddir}/extra-cmake-modules-5.85.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/extra-cmake-modules-5.85.0/LICENSES/MIT.txt %{buildroot}/usr/share/package-licenses/extra-cmake-modules/a0193e3fccf86c17dc71e3f6c0ac0b535e06bea3
 pushd clr-build
 %make_install
 popd
@@ -133,6 +133,7 @@ popd
 /usr/share/ECM/cmake/ECMConfig.cmake
 /usr/share/ECM/cmake/ECMConfigVersion.cmake
 /usr/share/ECM/find-modules/ECMFindModuleHelpersStub.cmake
+/usr/share/ECM/find-modules/Find7z.cmake
 /usr/share/ECM/find-modules/FindCanberra.cmake
 /usr/share/ECM/find-modules/FindEGL.cmake
 /usr/share/ECM/find-modules/FindGLIB2.cmake
@@ -165,6 +166,7 @@ popd
 /usr/share/ECM/find-modules/FindX11_XCB.cmake
 /usr/share/ECM/find-modules/FindXCB.cmake
 /usr/share/ECM/find-modules/Findepoxy.cmake
+/usr/share/ECM/find-modules/Findgzip.cmake
 /usr/share/ECM/find-modules/GeneratePythonBindingUmbrellaModule.cmake
 /usr/share/ECM/find-modules/Qt5Ruleset.py
 /usr/share/ECM/find-modules/local.properties.cmake
@@ -175,6 +177,7 @@ popd
 /usr/share/ECM/kde-modules/KDECMakeSettings.cmake
 /usr/share/ECM/kde-modules/KDEClangFormat.cmake
 /usr/share/ECM/kde-modules/KDECompilerSettings.cmake
+/usr/share/ECM/kde-modules/KDEFrameworkCompilerLegacySettings.cmake
 /usr/share/ECM/kde-modules/KDEFrameworkCompilerSettings.cmake
 /usr/share/ECM/kde-modules/KDEGitCommitHooks.cmake
 /usr/share/ECM/kde-modules/KDEInstallDirs.cmake
@@ -184,6 +187,7 @@ popd
 /usr/share/ECM/kde-modules/kde-git-commit-hooks/clang-format.sh
 /usr/share/ECM/kde-modules/kde-git-commit-hooks/pre-commit.in
 /usr/share/ECM/kde-modules/prefix.sh.cmake
+/usr/share/ECM/kde-modules/prefix.sh.fish.cmake
 /usr/share/ECM/modules/CheckAtomic.cmake
 /usr/share/ECM/modules/ECMAddAppIcon.cmake
 /usr/share/ECM/modules/ECMAddQch.cmake
@@ -236,6 +240,7 @@ popd
 
 %files doc
 %defattr(0644,root,root,0755)
+/usr/share/doc/ECM/html/_sources/find-module/Find7z.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindCanberra.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindEGL.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindGLIB2.rst.txt
@@ -265,6 +270,7 @@ popd
 /usr/share/doc/ECM/html/_sources/find-module/FindX11_XCB.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/FindXCB.rst.txt
 /usr/share/doc/ECM/html/_sources/find-module/Findepoxy.rst.txt
+/usr/share/doc/ECM/html/_sources/find-module/Findgzip.rst.txt
 /usr/share/doc/ECM/html/_sources/index.rst.txt
 /usr/share/doc/ECM/html/_sources/kde-module/KDECMakeSettings.rst.txt
 /usr/share/doc/ECM/html/_sources/kde-module/KDEClangFormat.rst.txt
@@ -328,6 +334,7 @@ popd
 /usr/share/doc/ECM/html/_static/sidebar.js
 /usr/share/doc/ECM/html/_static/underscore-1.13.1.js
 /usr/share/doc/ECM/html/_static/underscore.js
+/usr/share/doc/ECM/html/find-module/Find7z.html
 /usr/share/doc/ECM/html/find-module/FindCanberra.html
 /usr/share/doc/ECM/html/find-module/FindEGL.html
 /usr/share/doc/ECM/html/find-module/FindGLIB2.html
@@ -357,6 +364,7 @@ popd
 /usr/share/doc/ECM/html/find-module/FindX11_XCB.html
 /usr/share/doc/ECM/html/find-module/FindXCB.html
 /usr/share/doc/ECM/html/find-module/Findepoxy.html
+/usr/share/doc/ECM/html/find-module/Findgzip.html
 /usr/share/doc/ECM/html/genindex.html
 /usr/share/doc/ECM/html/index.html
 /usr/share/doc/ECM/html/kde-module/KDECMakeSettings.html

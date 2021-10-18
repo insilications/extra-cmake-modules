@@ -6,7 +6,7 @@
 #
 Name     : extra-cmake-modules
 Version  : 5.87.0
-Release  : 66
+Release  : 67
 URL      : https://download.kde.org/stable/frameworks/5.87/extra-cmake-modules-5.87.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.87/extra-cmake-modules-5.87.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.87/extra-cmake-modules-5.87.0.tar.xz.sig

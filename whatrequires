@@ -45,6 +45,7 @@ ksmtp
 ktexteditor
 kwallet-pam
 kwayland
+kwayland-integration
 kwayland-server
 kwin
 kwindowsystem
@@ -75,6 +76,7 @@ plasma-workspace
 polkit-qt
 powerdevil
 qca-qt5
+qt6base
 sddm
 simplescreenrecorder
 spectacle

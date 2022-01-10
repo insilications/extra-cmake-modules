@@ -6,7 +6,7 @@
 #
 Name     : extra-cmake-modules
 Version  : 5.89.0
-Release  : 69
+Release  : 70
 URL      : https://download.kde.org/stable/frameworks/5.89/extra-cmake-modules-5.89.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.89/extra-cmake-modules-5.89.0.tar.xz
 Source1  : https://download.kde.org/stable/frameworks/5.89/extra-cmake-modules-5.89.0.tar.xz.sig
@@ -16,7 +16,6 @@ License  : BSD-2-Clause BSD-3-Clause CC0-1.0 MIT
 Requires: extra-cmake-modules-data = %{version}-%{release}
 Requires: extra-cmake-modules-license = %{version}-%{release}
 Requires: extra-cmake-modules-man = %{version}-%{release}
-BuildRequires : Sphinx
 BuildRequires : buildreq-cmake
 BuildRequires : doxygen
 BuildRequires : pkg-config
@@ -34,6 +33,7 @@ BuildRequires : pkgconfig(mount)
 BuildRequires : pkgconfig(taglib)
 BuildRequires : pkgconfig(wayland-protocols)
 BuildRequires : pkgconfig(x11-xcb)
+BuildRequires : pypi-sphinx
 BuildRequires : python3-dev
 BuildRequires : qtbase-dev
 BuildRequires : qtdeclarative-dev
@@ -89,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1639670247
+export SOURCE_DATE_EPOCH=1641855102
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -112,7 +112,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1639670247
+export SOURCE_DATE_EPOCH=1641855102
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/extra-cmake-modules
 cp %{_builddir}/extra-cmake-modules-5.89.0/COPYING-CMAKE-SCRIPTS %{buildroot}/usr/share/package-licenses/extra-cmake-modules/ff3ed70db4739b3c6747c7f624fe2bad70802987

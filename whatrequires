@@ -42,7 +42,6 @@ krita
 kruler
 kscreenlocker
 ksmtp
-ktexteditor
 kwallet-pam
 kwayland
 kwayland-integration
@@ -65,6 +64,7 @@ obs-studio
 oiio
 okular
 openal-soft
+opencv
 openexr
 oxygen
 palapeli

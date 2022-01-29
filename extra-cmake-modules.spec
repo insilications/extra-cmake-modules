@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : extra-cmake-modules
 Version  : 5.90.0
-Release  : 303
+Release  : 304
 URL      : https://download.kde.org/stable/frameworks/5.90/extra-cmake-modules-5.90.0.tar.xz
 Source0  : https://download.kde.org/stable/frameworks/5.90/extra-cmake-modules-5.90.0.tar.xz
 Summary  : No detailed summary available
@@ -38,6 +38,7 @@ BuildRequires : qttools-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
+Patch1: 0001-stateless-xdg-dir.patch
 
 %description
 # Extra CMake Modules
@@ -75,6 +76,7 @@ man components for the extra-cmake-modules package.
 %prep
 %setup -q -n extra-cmake-modules-5.90.0
 cd %{_builddir}/extra-cmake-modules-5.90.0
+%patch1 -p1
 
 %build
 unset http_proxy
@@ -82,7 +84,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1643435320
+export SOURCE_DATE_EPOCH=1643459954
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -156,7 +158,7 @@ make  %{?_smp_mflags}    V=1 VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1643435320
+export SOURCE_DATE_EPOCH=1643459954
 rm -rf %{buildroot}
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar

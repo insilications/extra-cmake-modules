@@ -1,5 +1,6 @@
 PKG_NAME := extra-cmake-modules
-URL = https://download.kde.org/stable/frameworks/5.90/extra-cmake-modules-5.90.0.tar.xz
+URL = https://invent.kde.org/frameworks/extra-cmake-modules.git
 ARCHIVES = 
+ARCHIVES_GIT = 
 
 include ../common/Makefile.common

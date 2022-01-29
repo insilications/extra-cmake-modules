@@ -1,2 +1,10 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
+buildreq-cmake
+doxygen
+pkg-config
+pypi-sphinx
+python3-dev
+qtbase-dev
+qtdeclarative-dev
+qttools-dev

@@ -4,10 +4,10 @@
 #
 %define keepstatic 1
 Name     : extra-cmake-modules
-Version  : 5.91.0
-Release  : 305
-URL      : file:///aot/build/clearlinux/packages/extra-cmake-modules/extra-cmake-modules-v5.91.0.tar.gz
-Source0  : file:///aot/build/clearlinux/packages/extra-cmake-modules/extra-cmake-modules-v5.91.0.tar.gz
+Version  : 5.92.0
+Release  : 306
+URL      : file:///aot/build/clearlinux/packages/extra-cmake-modules/extra-cmake-modules-v5.92.0.tar.gz
+Source0  : file:///aot/build/clearlinux/packages/extra-cmake-modules/extra-cmake-modules-v5.92.0.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
@@ -79,7 +79,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1645622802
+export SOURCE_DATE_EPOCH=1647613713
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -153,7 +153,7 @@ make  %{?_smp_mflags}    V=1 VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1645622802
+export SOURCE_DATE_EPOCH=1647613713
 rm -rf %{buildroot}
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -223,6 +223,7 @@ export DESKTOP_SESSION=plasma
 pushd clr-build
 %make_install
 popd
+## start %find_lang macro
 
 %files
 %defattr(-,root,root,-)
@@ -283,6 +284,7 @@ popd
 /usr/share/ECM/kde-modules/KDEInstallDirs5.cmake
 /usr/share/ECM/kde-modules/KDEInstallDirs6.cmake
 /usr/share/ECM/kde-modules/KDEInstallDirsCommon.cmake
+/usr/share/ECM/kde-modules/KDEMetaInfoPlatformCheck.cmake
 /usr/share/ECM/kde-modules/KDEPackageAppTemplates.cmake
 /usr/share/ECM/kde-modules/KDESetupPrefixScript.cmake
 /usr/share/ECM/kde-modules/appstreamtest.cmake
